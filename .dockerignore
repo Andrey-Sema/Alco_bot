@@ -1,0 +1,114 @@
+# ==============================
+# СИСТЕМНЫЕ И GIT ФАЙЛЫ
+# ==============================
+.git
+.gitignore
+.dockerignore
+.gitattributes
+
+# ==============================
+# СЕКРЕТЫ И КОНФИГУРАЦИЯ
+# ==============================
+.env
+*.env
+.env.*
+*.env.*
+# Чтобы случайно не попали конфигурации CI/CD
+.github/
+.gitlab-ci.yml
+
+# ==============================
+# ОКРУЖЕНИЯ И ЗАВИСИМОСТИ
+# ==============================
+.venv/
+venv/
+ENV/
+env/
+lib/
+bin/
+include/
+
+# ==============================
+# PYTHON: КЭШ И СБОРКА
+# ==============================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ==============================
+# ЛОГИ И ТЕМПЫ
+# ==============================
+*.log
+logs/
+tmp/
+temp/
+
+# ==============================
+# ИНФРАСТРУКТУРА И УТИЛИТЫ
+# ==============================
+docker-compose.yml
+docker-compose.override.yml
+Makefile
+requirements.txt.lock
+dump_project.py
+project_dump.*
+
+# ==============================
+# ТЕСТЫ И ПОКРЫТИЕ (НА БУДУЩЕЕ)
+# ==============================
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.benchmarks/
+
+# ==============================
+# БАЗЫ ДАННЫХ
+# ==============================
+*.sqlite3
+*.db
+postgres_data/
+alco_bot_db/
+
+# ==============================
+# IDE И ОС
+# ==============================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# ДОКУМЕНТАЦИЯ
+# ==============================
+README.md
+LICENSE
+docs/
+*.md
