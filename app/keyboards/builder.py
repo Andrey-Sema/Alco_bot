@@ -47,18 +47,38 @@ def products_kb(products, category_name: str) -> InlineKeyboardMarkup:
     return builder.as_markup()
 
 
-def item_card_kb(product_id: int) -> InlineKeyboardMarkup:
-    """Кнопки под фото конкретного товара"""
+def item_card_kb(product_id: int, current_qty: int, category_name: str) -> InlineKeyboardMarkup:
+    """Кнопки под фото товара с динамическим счетчиком корзины"""
     builder = InlineKeyboardBuilder()
 
-    builder.row(
-        InlineKeyboardButton(
-            text="➕ Добавить в корзину",
-            callback_data=CartAction(action="add", product_id=product_id).pack()
+    if current_qty == 0:
+        # Если в корзине пусто — показываем одну большую кнопку добавления
+        builder.row(
+            InlineKeyboardButton(
+                text="➕ Добавить в корзину",
+                callback_data=CartAction(action="card_inc", product_id=product_id).pack()
+            )
         )
-    )
+    else:
+        # Если товар уже есть — выводим панель регулировки [ - ] [ кол-во ] [ + ]
+        builder.row(
+            InlineKeyboardButton(
+                text="➖",
+                callback_data=CartAction(action="card_dec", product_id=product_id).pack()
+            ),
+            InlineKeyboardButton(
+                text=f"В корзине: {current_qty} л",
+                callback_data="ignore"  # Пустышка, чтобы не кликалось
+            ),
+            InlineKeyboardButton(
+                text="➕",
+                callback_data=CartAction(action="card_inc", product_id=product_id).pack()
+            )
+        )
+
     builder.row(InlineKeyboardButton(text="🛒 Перейди в корзину", callback_data=CartAction(action="view").pack()))
-    builder.row(InlineKeyboardButton(text="⬅️ К категориям", callback_data="catalog"))
+    # Кнопка возврата в ту категорию, откуда пришел юзер
+    builder.row(InlineKeyboardButton(text="⬅️ Назад к списку", callback_data=CategoryClick(category_name=category_name).pack()))
 
     return builder.as_markup()
 

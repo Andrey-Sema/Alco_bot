@@ -13,7 +13,6 @@
 *.env
 .env.*
 *.env.*
-# Чтобы случайно не попали конфигурации CI/CD
 .github/
 .gitlab-ci.yml
 
@@ -54,21 +53,27 @@ share/python-wheels/
 MANIFEST
 
 # ==============================
-# ЛОГИ И ТЕМПЫ
+# ЛОГИ, БЭКАПЫ И ТЕМПЫ
 # ==============================
 *.log
 logs/
 tmp/
 temp/
+backups/
 
 # ==============================
-# ИНФРАСТРУКТУРА И УТИЛИТЫ
+# ИНФРАСТРУКТУРА И УТИЛИТЫ (Не нужны в проде)
 # ==============================
 docker-compose.yml
 docker-compose.override.yml
 Makefile
 requirements.txt.lock
+# Скрипты разработки и сидирования не тянем в боевой контейнер
+dump.py
 dump_project.py
+bundle_code.py
+seed_db.py
+project_context.txt
 project_dump.*
 
 # ==============================

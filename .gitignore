@@ -5,7 +5,6 @@
 .env.*
 *.env
 *.env.bak
-# Файлы ключей и сертификатов
 *.pem
 *.key
 *.pub
@@ -13,10 +12,8 @@
 # ==============================
 # ИНФРАСТРУКТУРА И БАЗЫ ДАННЫХ
 # ==============================
-# Локальные тома Docker
 postgres_data/
 alco_bot_db/
-# Файлы БД
 *.db
 *.sqlite3
 *.sqlite
@@ -28,8 +25,12 @@ alco_bot_db/
 # ==============================
 *.log
 logs/
+backups/
+project_context.txt
 project_dump.md
 dump_project.py
+dump.py
+bundle_code.py
 
 # ==============================
 # PYTHON И ВИРТУАЛЬНЫЕ ОКРУЖЕНИЯ
@@ -44,7 +45,7 @@ __pycache__/
 *.so
 .Python
 
-# Артефакты сборки и дистрибуции
+# Артефакты сборки
 build/
 develop-eggs/
 dist/
@@ -70,17 +71,13 @@ MANIFEST
 *.swp
 *.swo
 *~
-# Файлы настроек пользователя
-.vscode/settings.json
 
 # ==============================
 # СИСТЕМНЫЙ МУСОР ОС
 # ==============================
-# macOS
 .DS_Store
 .AppleDouble
 .LSOverride
-# Windows
 Thumbs.db
 desktop.ini
 $RECYCLE.BIN/

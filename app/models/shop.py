@@ -37,6 +37,7 @@ class Product(Base):
     name: Mapped[str] = mapped_column(String(100))
     # Защита от дебилов: цена не может быть отрицательной
     price: Mapped[int] = mapped_column(Integer, CheckConstraint('price >= 0'))
+    description: Mapped[Optional[str]] = mapped_column(String(500), nullable=True)
     photo_id: Mapped[str] = mapped_column(String(255))
     # Soft delete: менеджер "удаляет" товар, но мы просто скрываем его из витрины
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
